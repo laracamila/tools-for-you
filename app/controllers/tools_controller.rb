@@ -2,6 +2,10 @@ class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
   def index
     @tools = Tool.all
+<<<<<<< HEAD
+=======
+    authorize @tool
+>>>>>>> master
   end
 
   def show
@@ -13,7 +17,7 @@ class ToolsController < ApplicationController
 
   def create
     @tool = Tool.new(tool_params)
-    @tool.user_id = current_user
+    @tool.user = current_user
     if @tool.save
       redirect_to tool_path(@tool)
     else
@@ -25,9 +29,13 @@ class ToolsController < ApplicationController
   end
 
   def update
+    @tool.update(tool_params)
+    redirect_to tool_path(@tool)
   end
 
   def destroy
+    @tool.destroy
+    redirect_to tools_path
   end
 
   private
@@ -38,5 +46,6 @@ class ToolsController < ApplicationController
 
   def set_tool
     @tool = Tool.find(params[:id])
+    authorize @tool
   end
 end
