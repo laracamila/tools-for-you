@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+
+  resources :tools do
+    resources :books, only: [:new, :create, :edit, :update, :destroy]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
