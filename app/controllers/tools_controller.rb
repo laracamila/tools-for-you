@@ -2,6 +2,7 @@ class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
   def index
     @tools = Tool.all
+    authorize @tool
   end
 
   def show
