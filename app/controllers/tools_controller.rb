@@ -1,8 +1,7 @@
 class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
   def index
-    @tools = Tool.all
-    authorize @tool
+    @tools = policy_scope(Tool)
   end
 
   def show
@@ -10,11 +9,15 @@ class ToolsController < ApplicationController
 
   def new
     @tool = Tool.new
+    authorize @tool
   end
 
   def create
     @tool = Tool.new(tool_params)
     @tool.user = current_user
+
+    authorize @tool
+
     if @tool.save
       redirect_to tool_path(@tool)
     else
