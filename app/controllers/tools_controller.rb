@@ -1,6 +1,7 @@
 class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
   def index
+    @tools = Tool.all
   end
 
   def show
@@ -12,7 +13,7 @@ class ToolsController < ApplicationController
 
   def create
     @tool = Tool.new(tool_params)
-    @tool.user_id = current_user
+    @tool.user = current_user
     if @tool.save
       redirect_to tool_path(@tool)
     else
