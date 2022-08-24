@@ -1,7 +1,21 @@
+<div class="container mt-5">
+
     <ul>
+      <%= cl_image_tag @tool.photo.key, height: 300, width: 400, crop: :fill %>
       <h1><%= @tool.name %></h1>
       <p><%= @tool.price %></p>
       <p><%= @tool.description %></p>
       <p><%= @tool.category %></p>
       <p><%= @tool.img_url %></p>
     </ul>
+
+<%= link_to edit_tool_path(@tool.id), class: 'btn btn-light btn-sm border' do %>
+      <i class="fa fa-pencil"></i> Edit this tool
+    <% end %>
+
+<%= link_to "Delete",
+  tool_path(@tool),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+
+</div>
