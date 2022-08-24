@@ -1,23 +1,39 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.milium.com.br/wp-content/uploads/2020/10/Banner-Blog-Post-Milium-Out20-02.jpg);">
+  <div class="container">
+    <h1>Tools For You</h1>
+        <p>Don't stop your work, rent a tool!</p>
+        <%= link_to "Join us",  new_user_session_path, class:"btn btn-flat", style: "color: white;" %>
+  </div>
+</div>
+
+
+
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-white">
-    <h1>Rent any kind of tools</h1>
     <h3 class="typed-js" data-controller="typed-js"></h3>
   </div>
 </div>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">My Tools</h3>
-    <%= link_to "Add a tool for rent", new_tool_path, class: "btn btn-flat" %>
-  </div> %>
+    <h3 class="mb-0">Tools for rent</h3>
+    <%= link_to "Add a tool for rent", new_tool_path, class: "btn btn-primary" %>
+  </div>
   <div class="row">
     <% @tools.each do |tool| %>
-      <div class="co-12 col-sm-6 col-md-4 mb-3">
-        <%= link_to tool_path(tool), class:"text-decoration-none" do %>
-          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('Tool.jpg') %>)">
-            <%= tool.name %>
+        <div class="col-6 mb-5">
+          <div class="card-trip">
+              <%# <%= cl_image_tag plant.photo.key, class:"figure-img img-fluid rounded" %>
+              <%= image_tag "https://cdn.awsli.com.br/1000x1000/1791/1791038/produto/89783923/d237e6ccbd.jpg" %>
+            <div class="card-trip-infos">
+              <div>
+                <h2 class="card-title"><%= tool.name.upcase %></h2>
+                <p><%= tool.description.capitalize %></p>
+              </div>
+              <h2 class="card-trip-pricing">U$ <%= tool.price %></h2>
+            </div>
+            <%= link_to "More details", tool_path(tool), class: "btn btn-primary w-100"%>
           </div>
-        <% end %>
-      </div>
+        </div>
     <% end %>
   </div>
 </div>
