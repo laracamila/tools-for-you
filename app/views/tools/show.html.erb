@@ -5,6 +5,8 @@
       <h1><%= @tool.name %></h1>
       <p><%= @tool.price %></p>
       <p><%= @tool.description %></p>
+      <p><%= @tool.category %></p>
+      <p><%= @tool.img_url %></p>
     </ul>
 
 <%= link_to edit_tool_path(@tool.id), class: 'btn btn-light btn-sm border' do %>
