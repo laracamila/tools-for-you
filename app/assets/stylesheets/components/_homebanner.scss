@@ -1,7 +1,7 @@
 .homebanner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  height: 600px;
 }
 
 .homebanner h1 {
@@ -10,21 +10,16 @@
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   text-align: center;
-  font-size: 50px;
+  font-size: 80px;
   font-weight: bold;
 }
 
 .homebanner p {
-  font-size: 16px;
+  font-size: 30px;
   color: white;
-  opacity: .7;
+  opacity: 1;
   text-align: center;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.homebanner li {
-  color: white;
-  text-align: center;
 }
 
 .homeflow {
