@@ -6,6 +6,22 @@
   </div>
 </div>
 
+<div class="container">
+<%= form_with url: tools_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a tool"
+  %>
+  <%= text_field_tag :location,
+    params[:location],
+    class: "form-control",
+    placeholder: "Where?"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+</div>
+
 
 
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
