@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container form mt-3">
 <%= form_with url: tools_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
@@ -16,7 +16,7 @@
   <%= text_field_tag :location,
     params[:location],
     class: "form-control",
-    placeholder: "Where?"
+    placeholder: "City?"
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
@@ -36,10 +36,14 @@
   </div>
   <div class="row">
     <% @tools.each do |tool| %>
-        <div class="col-6 mb-5">
+        <div class="col-4 mb-5">
           <div class="card-trip">
               <%# <%= cl_image_tag plant.photo.key, class:"figure-img img-fluid rounded" %>
-              <%= image_tag "https://cdn.awsli.com.br/1000x1000/1791/1791038/produto/89783923/d237e6ccbd.jpg" %>
+              <% if tool.photo.key.nil? %>
+              <%= image_tag 'https://images.unsplash.com/photo-1540103711724-ebf833bde8d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80'%>
+              <% else %>
+              <%= cl_image_tag tool.photo.key %>
+              <% end %>
             <div class="card-trip-infos">
               <div>
                 <h2 class="card-title"><%= tool.name.upcase %></h2>

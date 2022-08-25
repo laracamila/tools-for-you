@@ -1,0 +1,45 @@
+.homebanner {
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+}
+
+.homebanner h1 {
+  margin: 0;
+  letter-spacing: 10px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.homebanner p {
+  font-size: 30px;
+  color: white;
+  opacity: 1;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.homeflow {
+  background-color: grey;
+  padding: 10px;
+  width: 100%;
+}
+
+.homeflow p {
+  font-size: 30px;
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+.homeflow-click p {
+  font-size: 16px;
+  color: white;
+}
+
+.homeflow-click {
+  text-align: center;
+}
