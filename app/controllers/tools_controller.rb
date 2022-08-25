@@ -1,8 +1,18 @@
 class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+
   def index
-    @tools = policy_scope(Tool)
+    if params[:query].present? && params[:location].present?
+      @tools_name = Tool.name_search(params[:query])
+      @tools = policy_scope(@tools_name.location_search(params[:location]))
+    elsif params[:query].present?
+      @tools = policy_scope(Tool.name_search(params[:query]))
+    elsif params[:location].present?
+      @tools = policy_scope(Tool.location_search(params[:location]))
+    else
+      @tools = policy_scope(Tool)
+    end
   end
 
   def show
@@ -35,16 +45,14 @@ class ToolsController < ApplicationController
   end
 
   def destroy
-    @tool.destroy
+    @tool.destroy!
     redirect_to tools_path, status: :see_other
   end
 
   private
 
   def tool_params
-
-    params.require(:tool).permit(:name, :description, :price, :photo)
-
+    params.require(:tool).permit(:name, :description, :price, :photo, :location)
   end
 
   def set_tool
