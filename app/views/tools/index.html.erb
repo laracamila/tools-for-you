@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Tools For You</h1>
         <p>Don't stop your work, rent a tool!</p>
-        <%= link_to "Join us",  new_user_session_path, class:"btn btn-flat", style: "color: white;" %>
+        <%= link_to "Join us",  new_user_session_path, class:"btn btn-flat"%>
   </div>
 </div>
 
@@ -18,7 +18,7 @@
     class: "form-control",
     placeholder: "City?"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", class: "btn brown'" %>
 <% end %>
 </div>
 
@@ -32,11 +32,11 @@
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">Tools for rent</h3>
-    <%= link_to "Add a tool for rent", new_tool_path, class: "btn btn-primary" %>
+    <%= link_to "Add a tool for rent", new_tool_path, class: "btn brown" %>
   </div>
   <div class="row">
     <% @tools.each do |tool| %>
-        <div class="col-4 mb-5">
+        <div class="col-3 mb-5">
           <div class="card-trip">
               <%# <%= cl_image_tag plant.photo.key, class:"figure-img img-fluid rounded" %>
               <% if tool.photo.key.nil? %>
@@ -51,7 +51,7 @@
               </div>
               <h2 class="card-trip-pricing">U$ <%= tool.price %></h2>
             </div>
-            <%= link_to "More details", tool_path(tool), class: "btn btn-primary w-100"%>
+            <%= link_to "More details", tool_path(tool), class: "btn brown w-100"%>
           </div>
         </div>
     <% end %>
