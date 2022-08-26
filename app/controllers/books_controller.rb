@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     @book.tool = @tool
     authorize @book
     if @book.save
-      redirect_to tool_path(@tool)
+      redirect_to tool_path(@tool), notice: ". Your reservation was sent to the owner, you will be contacted soon."
     else
       render :new, status: :unprocessable_entity
     end
