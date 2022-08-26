@@ -2,6 +2,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
 }
 
 .card-trip > img {
@@ -36,4 +37,29 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.container .card-product {
+  height: 600px;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+}
+
+
+.card-product.img {
+  background-size: cover;
+  height: 100%;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.card-product.text {
+  padding-left: 20px;
+}
+
+.card-product.img > img {
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
