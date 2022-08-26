@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="card-product mt-5 border rounded-4 d-flex justify-content-between">
     <div class="card-product img col-5">
@@ -13,14 +14,33 @@
       <p><%= @tool.description %></p>
       <p><%= @tool.location %></p>
       <p><%= @tool.category %></p>
-    <%= link_to edit_tool_path(@tool.id), class: 'btn btn-light btn-sm border' do %>
-          <i class="fa fa-pencil"></i> Edit this tool
-        <% end %>
+      <% unless @tool.books.empty? %>
+        <p> <%= @tool.books.last.checkin%> </p>
+      <% end  %>
 
+    <% if policy(@tool).edit? %>
+      <%= link_to edit_tool_path(@tool.id), class: 'btn btn-light btn-sm border' do %>
+          <i class="fa fa-pencil"></i> Edit this tool
+      <% end %>
+    <% end %>
+
+    <% if policy(@tool).destroy? %>
     <%= link_to "Delete",
       tool_path(@tool),
       data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
     %>
+    <% end %>
+
+    <%= simple_form_for [@tool, @book] do |f| %>
+          <%= f.input :checkin %>
+          <%= f.input :checkout %>
+          <%= f.input :comment %>
+          <%= f.submit %>
+    <% end %>
+
+
+
+
     </div>
   </div>
 </div>

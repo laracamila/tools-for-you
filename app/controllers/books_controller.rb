@@ -2,14 +2,18 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:edit, :update, :destroy]
   def new
     @book = Book.new
+    @tool = Tool.find(params[:tool_id])
+    @book.user_id = current_user
   end
 
   def create
     @book = Book.new(book_params)
-    @book.user_id = current_user
+    @book.user = current_user
     @tool = Tool.find(params[:tool_id])
+    @book.tool = @tool
+    authorize @book
     if @book.save
-      redirect_to book_path(@book)
+      redirect_to tool_path(@tool)
     else
       render :new, status: :unprocessable_entity
     end
