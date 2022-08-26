@@ -1,33 +1,26 @@
-<div class="container mt-5">
-
-    <ul>
-     <% if @tool.photo.key.nil? %>
+<div class="container">
+  <div class="card-product mt-5 border rounded-4 d-flex justify-content-between">
+    <div class="card-product img col-5">
+      <% if @tool.photo.key.nil? %>
         <%= image_tag 'https://images.unsplash.com/photo-1540103711724-ebf833bde8d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80'%>
       <% else %>
         <%= cl_image_tag @tool.photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
+    </div>
+    <div class="card-product text col-7">
       <h1><%= @tool.name %></h1>
       <p><%= @tool.price %></p>
       <p><%= @tool.description %></p>
       <p><%= @tool.location %></p>
       <p><%= @tool.category %></p>
-    </ul>
+    <%= link_to edit_tool_path(@tool.id), class: 'btn btn-light btn-sm border' do %>
+          <i class="fa fa-pencil"></i> Edit this tool
+        <% end %>
 
-<%= link_to edit_tool_path(@tool.id), class: 'btn btn-light btn-sm border' do %>
-      <i class="fa fa-pencil"></i> Edit this tool
-    <% end %>
-
-<%= link_to "Delete",
-  tool_path(@tool),
-  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
-%>
-
-<%= form_with model: Book.new, authenticity_token: true do |f| %>
-  <%= f.text_field :start_time,
-    data: {
-      controller: "flatpickr",
-      flatpickr_min_date: Time.zone.now #disables past dates
-    } %>
-<% end %>
-
+    <%= link_to "Delete",
+      tool_path(@tool),
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
+    %>
+    </div>
+  </div>
 </div>
