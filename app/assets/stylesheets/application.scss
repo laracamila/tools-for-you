@@ -13,12 +13,12 @@
 
 
 body {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: $body-font;
   background-color: white;
 }
 
 
-h1 {
-  font-family: 'Josefin Sans', sans-serif;
+h2 {
+  font-family: $headers-font;
 
 }

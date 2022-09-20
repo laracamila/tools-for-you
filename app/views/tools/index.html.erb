@@ -7,19 +7,19 @@
 </div>
 
 <div class="container form mt-3">
-<%= form_with url: tools_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a tool"
-  %>
-  <%= text_field_tag :location,
-    params[:location],
-    class: "form-control",
-    placeholder: "City?"
-  %>
-  <%= submit_tag "Search", class: "btn brown'" %>
-<% end %>
+  <%= form_with url: tools_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a tool"
+    %>
+    <%= text_field_tag :location,
+      params[:location],
+      class: "form-control",
+      placeholder: "City?"
+    %>
+    <%= submit_tag "Search", class: "btn brown'" %>
+  <% end %>
 </div>
 
 

@@ -63,3 +63,27 @@
   width: 100%;
   object-fit: cover;
 }
+
+.how-img img{
+  height: 13rem;
+  width: 13rem;
+  &:hover{
+    transform: scale(1.10, 1.10);
+  }
+}
+
+.how-img{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  p{
+    margin: 2rem;
+    font-size: 1.5rem;
+  };
+}
+
+.how-works {
+  h3{
+    padding-top: 2rem;
+    font-size: 2.2rem;
+  }
+}

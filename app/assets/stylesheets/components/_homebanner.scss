@@ -1,21 +1,22 @@
 .homebanner {
   background-size: cover;
   background-position: center;
-  height: 600px;
+  height: 500px;
 }
 
-.homebanner h1 {
+.homebanner h2 {
   margin: 0;
-  letter-spacing: 10px;
+  letter-spacing: 0.2rem;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.491);
   text-align: center;
-  font-size: 80px;
-  font-weight: bold;
+  font-size: 4rem;
+  font: $headers-font;
+  font-weight: 700;
 }
 
 .homebanner p {
-  font-size: 30px;
+  font-size: 2rem;
   color: white;
   opacity: 1;
   text-align: center;
@@ -42,4 +43,8 @@
 
 .homeflow-click {
   text-align: center;
+}
+
+.form-home {
+  width: 500px;
 }
